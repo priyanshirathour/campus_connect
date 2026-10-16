@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f1f5f2">
+    <meta name="description" content="Manage your Campus Connect registrations and campus activities.">
+    <title>Dashboard | Campus Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js" defer></script>
+</head>
+<body class="dashboard-page">
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="Campus Connect home">
+            <span class="brand-mark" aria-hidden="true">cc</span>
+            <span>campus<span class="brand-light">connect</span></span>
+        </a>
+        <nav class="dashboard-nav" aria-label="Dashboard navigation">
+            <a href="/">Discover events</a>
+            <div class="user-area" id="user-area"></div>
+        </nav>
+    </header>
+
+    <main class="dashboard-shell">
+        <section class="dashboard-heading">
+            <p class="eyebrow" id="dashboard-role">CAMPUS CONNECT</p>
+            <h1 id="dashboard-title">Your dashboard</h1>
+            <p id="dashboard-subtitle">Loading your campus activity...</p>
+        </section>
+        <p class="dashboard-status" id="dashboard-status" role="status"></p>
+
+        <section id="student-dashboard" hidden>
+            <div class="metric-row" id="student-metrics"></div>
+            <div class="dashboard-grid">
+                <section class="dashboard-section framed-section">
+                    <div class="section-heading"><div><p class="eyebrow">YOUR EVENTS</p><h2>Registrations</h2></div></div>
+                    <form class="compact-form" id="register-form">
+                        <label for="register-event">Find an event to join</label>
+                        <div class="inline-controls"><select id="register-event" required></select><button type="submit">Register</button></div>
+                    </form>
+                    <div class="record-list" id="registration-list"></div>
+                </section>
+
+                <section class="dashboard-section framed-section">
+                    <div class="section-heading"><div><p class="eyebrow">UPDATES</p><h2>Notifications</h2></div><button class="quiet-button" id="mark-notifications-read" type="button">Mark all read</button></div>
+                    <div class="record-list" id="notification-list"></div>
+                </section>
+
+                <section class="dashboard-section">
+                    <div class="section-heading"><div><p class="eyebrow">BASED ON YOUR INTERESTS</p><h2>Recommended for you</h2></div></div>
+                    <div class="recommendation-columns">
+                        <div><h3>Clubs</h3><div class="record-list" id="recommended-clubs"></div></div>
+                        <div><h3>Events</h3><div class="record-list" id="recommended-events"></div></div>
+                    </div>
+                </section>
+
+                <section class="dashboard-section framed-section">
+                    <div class="section-heading"><div><p class="eyebrow">YOUR MILESTONES</p><h2>Certificates</h2></div></div>
+                    <div class="record-list" id="certificate-list"></div>
+                </section>
+
+                <section class="dashboard-section framed-section">
+                    <div class="section-heading"><div><p class="eyebrow">AFTER THE EVENT</p><h2>Leave feedback</h2></div></div>
+                    <form class="stacked-form" id="feedback-form">
+                        <label for="feedback-event">Event</label><select id="feedback-event" required></select>
+                        <label for="feedback-rating">Rating</label><select id="feedback-rating" required><option value="5">5 · Excellent</option><option value="4">4 · Good</option><option value="3">3 · Okay</option><option value="2">2 · Poor</option><option value="1">1 · Very poor</option></select>
+                        <label for="feedback-comment">Comment</label><textarea id="feedback-comment" rows="3" maxlength="1000" placeholder="What stood out?" required></textarea>
+                        <button type="submit">Send feedback</button>
+                    </form>
+                </section>
+            </div>
+        </section>
+
+        <section id="coordinator-dashboard" hidden>
+            <div class="metric-row" id="coordinator-metrics"></div>
+            <div class="coordinator-layout">
+                <aside class="coordinator-rail">
+                    <a href="#manage-events">Events</a><a href="#manage-clubs">Clubs</a><a href="#manage-attendance">Attendance</a><a href="#manage-feedback">Feedback</a><a href="#manage-reports">Reports</a>
+                </aside>
+                <div class="coordinator-content">
+                    <section class="dashboard-section framed-section" id="manage-events">
+                        <div class="section-heading"><div><p class="eyebrow">PROGRAMMING</p><h2>Create event</h2></div></div>
+                        <form class="form-grid" id="event-form">
+                            <label>Event ID<input name="id" placeholder="E105" required></label>
+                            <label>Club<select name="clubId" id="event-club" required></select></label>
+                            <label class="wide-field">Title<input name="title" required></label>
+                            <label class="wide-field">Description<input name="description" required></label>
+                            <label>Date<input name="date" type="date" required></label>
+                            <label>Time<input name="time" type="time" required></label>
+                            <label>Venue<input name="venue" required></label>
+                            <label>Category<input name="category" required></label>
+                            <label>Capacity<input name="capacity" type="number" min="1" max="100000" required></label>
+                            <button type="submit">Create event</button>
+                        </form>
+                        <div class="record-list compact-record-list" id="coordinator-event-list"></div>
+                    </section>
+
+                    <section class="dashboard-section framed-section" id="manage-clubs">
+                        <div class="section-heading"><div><p class="eyebrow">COMMUNITIES</p><h2>Clubs and membership</h2></div></div>
+                        <form class="form-grid" id="club-form">
+                            <label>Club ID<input name="id" placeholder="C104" required></label>
+                            <label>Club name<input name="name" required></label>
+                            <label class="wide-field">Description<input name="description" required></label>
+                            <label class="wide-field">Interests<input name="interests" placeholder="coding, design, robotics"></label>
+                            <button type="submit">Create club</button>
+                        </form>
+                        <form class="inline-form" id="membership-form">
+                            <label>Club<select id="member-club" required></select></label>
+                            <label>Student<select id="member-student" required></select></label>
+                            <button type="submit">Add member</button>
+                        </form>
+                        <div class="record-list compact-record-list" id="coordinator-club-list"></div>
+                    </section>
+
+                    <section class="dashboard-section framed-section" id="manage-attendance">
+                        <div class="section-heading"><div><p class="eyebrow">EVENT OPERATIONS</p><h2>Attendance and certificates</h2></div></div>
+                        <form class="inline-form" id="attendance-form">
+                            <label>Student<select id="attendance-student" required></select></label>
+                            <label>Event<select id="attendance-event" required></select></label>
+                            <label>Attendance<select id="attendance-present"><option value="true">Present</option><option value="false">Absent</option></select></label>
+                            <button type="submit">Save attendance</button>
+                        </form>
+                        <form class="inline-form" id="certificate-form">
+                            <label>Student<select id="certificate-student" required></select></label>
+                            <label>Event<select id="certificate-event" required></select></label>
+                            <button type="submit">Issue certificate</button>
+                        </form>
+                    </section>
+
+                    <section class="dashboard-section framed-section" id="manage-feedback">
+                        <div class="section-heading"><div><p class="eyebrow">STUDENT VOICE</p><h2>Feedback report</h2></div></div>
+                        <form class="inline-form" id="feedback-report-form">
+                            <label>Event<select id="report-event" required></select></label>
+                            <button type="submit">View feedback</button>
+                        </form>
+                        <div id="feedback-report" class="record-list"></div>
+                    </section>
+
+                    <section class="dashboard-section" id="manage-reports">
+                        <div class="section-heading"><div><p class="eyebrow">CAMPUS CONNECT</p><h2>System report</h2></div><a class="download-link" href="/api/coordinator/report">Download summary</a></div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="dashboard-toast" id="dashboard-toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

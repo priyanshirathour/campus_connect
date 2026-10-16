@@ -1,0 +1,10 @@
+{
+  "name": "campus-connect",
+  "version-string": "1.0.0",
+  "dependencies": [
+    "cpp-httplib",
+    "libsodium",
+    "mongo-cxx-driver",
+    "nlohmann-json"
+  ]
+}

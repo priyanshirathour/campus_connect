@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f1f5f2">
+    <meta name="description" content="Find student clubs and upcoming events at Campus Connect.">
+    <title>Discover campus | Campus Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="#top" aria-label="Campus Connect home">
+            <span class="brand-mark" aria-hidden="true">cc</span>
+            <span>campus<span class="brand-light">connect</span></span>
+        </a>
+        <nav class="top-nav" aria-label="Main navigation">
+            <a class="active" href="#events">Discover</a>
+            <a href="#clubs">Clubs</a>
+            <a href="#about">About</a>
+        </nav>
+        <div class="user-area" id="user-area">
+            <a class="sign-in-link" href="login.html">Sign in <span aria-hidden="true">↗</span></a>
+        </div>
+    </header>
+
+    <main id="top" class="page-shell">
+        <section class="welcome-row" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow"><span class="status-dot"></span> YOUR CAMPUS, IN MOTION</p>
+                <h1 id="page-title">Find your <em>people.</em></h1>
+                <p class="welcome-copy">A good semester starts with showing up.</p>
+            </div>
+            <div class="date-stamp" id="today-label"></div>
+        </section>
+
+        <section class="feature" aria-label="Featured campus event">
+            <img class="feature-image" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=85" alt="Student studying in a campus library" onerror="this.hidden=true">
+            <div class="feature-shade"></div>
+            <div class="feature-content">
+                <span class="feature-kicker"><span class="feature-spark" aria-hidden="true">✳</span> THE CAMPUS EDIT</span>
+                <p class="feature-date" id="feature-date">UP NEXT</p>
+                <h2 id="feature-title">Your next good story<br>starts here.</h2>
+                <p id="feature-description">Explore what's happening around campus.</p>
+                <button class="feature-button" id="feature-action" type="button">Explore events <span aria-hidden="true">↗</span></button>
+            </div>
+            <div class="feature-index"><span id="feature-index">01</span> / <span id="feature-total">04</span></div>
+        </section>
+
+        <section class="discovery-layout" id="events" aria-label="Explore events and clubs">
+            <aside class="filter-rail" aria-label="Event filters">
+                <div class="rail-heading">
+                    <span class="eyebrow">YOUR COMPASS</span>
+                    <span class="rail-rule"></span>
+                </div>
+                <button class="filter-link selected" type="button" data-view="all"><span class="filter-symbol" aria-hidden="true">◫</span> All events <span class="filter-count" id="all-count">0</span></button>
+                <button class="filter-link" type="button" data-view="saved"><span class="filter-symbol" aria-hidden="true">☆</span> Saved <span class="filter-count" id="saved-count">0</span></button>
+                <div class="rail-heading category-heading">
+                    <span class="eyebrow">BY INTEREST</span>
+                    <span class="rail-rule"></span>
+                </div>
+                <div class="category-list" id="category-list"></div>
+                <section class="club-note" id="clubs">
+                    <span class="note-mark" aria-hidden="true">+</span>
+                    <p class="eyebrow">BETTER TOGETHER</p>
+                    <h2>Find your corner.</h2>
+                    <p id="club-summary">Meet the student groups shaping campus life.</p>
+                    <a href="#club-list">Meet the clubs <span aria-hidden="true">→</span></a>
+                </section>
+            </aside>
+
+            <div class="event-column">
+                <div class="section-toolbar">
+                    <div>
+                        <p class="eyebrow">THE NOTICEBOARD</p>
+                        <h2 id="list-heading">Coming up <span class="heading-count" id="result-count">0</span></h2>
+                    </div>
+                    <label class="search-box">
+                        <span class="search-icon" aria-hidden="true">⌕</span>
+                        <span class="visually-hidden">Search events</span>
+                        <input id="event-search" type="search" placeholder="Search events" autocomplete="off">
+                    </label>
+                </div>
+                <p class="snapshot-status" id="snapshot-status" role="status">Loading campus events...</p>
+                <div class="event-list" id="event-list" aria-live="polite"></div>
+                <div class="empty-state" id="empty-state" hidden>
+                    <span aria-hidden="true">◌</span>
+                    <h3>No events in this corner yet.</h3>
+                    <p>Try another category or clear your search.</p>
+                    <button type="button" id="clear-filters">Show all events</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="club-section" id="club-list" aria-labelledby="club-title">
+            <div class="club-section-heading">
+                <div>
+                    <p class="eyebrow">PEOPLE WITH A THING IN COMMON</p>
+                    <h2 id="club-title">Around the clubs</h2>
+                </div>
+                <span class="club-total"><span id="club-count">0</span> GROUPS</span>
+            </div>
+            <div class="club-grid" id="club-grid"></div>
+        </section>
+
+        <footer class="page-footer" id="about">
+            <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">cc</span><span>campus<span class="brand-light">connect</span></span></a>
+            <p>Made for the moments between classes.</p>
+            <span class="data-credit">CAMPUS CONNECT · EVENT SNAPSHOT</span>
+        </footer>
+    </main>
+
+    <dialog class="event-dialog" id="event-dialog" aria-labelledby="dialog-title">
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="Close event details">×</button>
+        <p class="eyebrow" id="dialog-category"></p>
+        <h2 id="dialog-title"></h2>
+        <p class="dialog-description" id="dialog-description"></p>
+        <dl class="dialog-facts">
+            <div><dt>When</dt><dd id="dialog-when"></dd></div>
+            <div><dt>Where</dt><dd id="dialog-where"></dd></div>
+            <div><dt>Hosted by</dt><dd id="dialog-host"></dd></div>
+            <div><dt>Capacity</dt><dd id="dialog-capacity"></dd></div>
+        </dl>
+        <p class="dialog-note">Use the Campus Connect C++ console app for registration.</p>
+    </dialog>
+</body>
+</html>

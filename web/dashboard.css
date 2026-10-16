@@ -1,0 +1,78 @@
+.dashboard-page { min-height: 100vh; }
+.dashboard-nav { display: flex; align-items: center; gap: 25px; }
+.dashboard-nav > a { color: var(--muted); font-size: 11px; font-weight: 600; }
+.dashboard-shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 38px 0 70px; }
+.dashboard-heading { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.dashboard-heading .eyebrow { color: #bc523d; }
+.dashboard-heading h1 { margin: 7px 0 4px; font: 500 34px/1.15 var(--serif); }
+.dashboard-heading > p:last-child { margin: 0; color: var(--muted); font-size: 12px; }
+.dashboard-status { min-height: 18px; margin: 12px 0; color: var(--muted); font-size: 10px; }
+.dashboard-status.error { color: #963f31; }
+.metric-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 28px; }
+.metric { padding: 14px 16px; border-top: 2px solid #8fa99a; background: #e6eee8; }
+.metric:nth-child(3n + 2) { border-color: var(--coral); background: #f3e8e2; }
+.metric:nth-child(3n + 3) { border-color: #a3b64d; background: #e8edcf; }
+.metric-value { display: block; color: var(--ink); font: 500 24px/1.1 var(--serif); }
+.metric-label { display: block; margin-top: 4px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; }
+.dashboard-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.dashboard-section { min-width: 0; padding: 18px 0 22px; border-bottom: 1px solid var(--line); }
+.framed-section { padding: 18px; border: 1px solid var(--line); background: rgba(255,255,255,.57); }
+.section-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
+.section-heading h2 { margin: 4px 0 0; font: 500 22px/1.2 var(--serif); }
+.section-heading .eyebrow { font-size: 9px; }
+.dashboard-section h3 { margin: 0 0 8px; font-size: 11px; }
+.compact-form, .stacked-form, .form-grid, .inline-form { display: grid; gap: 8px; }
+.compact-form { margin-bottom: 15px; }
+.compact-form label, .stacked-form label, .form-grid label, .inline-form label { display: grid; gap: 5px; color: var(--ink); font-size: 10px; font-weight: 700; }
+.compact-form input, .compact-form select, .stacked-form input, .stacked-form select, .stacked-form textarea, .form-grid input, .form-grid select, .inline-form input, .inline-form select { width: 100%; min-width: 0; min-height: 36px; padding: 7px 9px; border: 1px solid #d4dfd8; border-radius: 0; background: #fff; color: var(--ink); font: 11px var(--sans); }
+.stacked-form textarea { resize: vertical; }
+.inline-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 7px; }
+.compact-form button, .stacked-form button, .form-grid > button, .inline-form > button { min-height: 36px; padding: 0 13px; border: 0; background: var(--forest); color: #fff; font: 700 10px var(--sans); cursor: pointer; }
+.compact-form button:hover, .stacked-form button:hover, .form-grid > button:hover, .inline-form > button:hover { background: #245246; }
+.quiet-button { border: 1px solid #bdccc1; padding: 7px 9px; background: transparent; color: var(--forest); font: 600 9px var(--sans); cursor: pointer; }
+.record-list { display: grid; gap: 7px; }
+.record-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 9px 0; border-bottom: 1px solid #e0e7e2; }
+.record-item:last-child { border-bottom: 0; }
+.record-main { min-width: 0; }
+.record-title { display: block; color: var(--ink); font-size: 11px; font-weight: 700; overflow-wrap: anywhere; }
+.record-detail { display: block; margin-top: 3px; color: var(--muted); font-size: 9px; line-height: 1.45; }
+.record-state { flex: 0 0 auto; color: #557366; font-size: 8px; font-weight: 700; text-transform: uppercase; }
+.record-state.waitlisted { color: #a15a36; }
+.record-action { flex: 0 0 auto; border: 1px solid #bfcec3; padding: 5px 8px; background: transparent; color: #924534; font: 600 9px var(--sans); cursor: pointer; }
+.empty-record { padding: 13px 0; color: var(--muted); font-size: 10px; }
+.recommendation-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.coordinator-layout { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 30px; align-items: start; }
+.coordinator-rail { position: sticky; top: 18px; display: grid; gap: 2px; }
+.coordinator-rail a { padding: 8px 10px; color: var(--muted); font-size: 10px; }
+.coordinator-rail a:hover { background: #e5ede7; color: var(--ink); }
+.coordinator-content { display: grid; gap: 12px; min-width: 0; }
+.form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 18px; }
+.form-grid .wide-field { grid-column: 1 / -1; }
+.inline-form { grid-template-columns: repeat(3, minmax(0, 1fr)) auto; align-items: end; margin: 12px 0; }
+.compact-record-list { border-top: 1px solid var(--line); }
+.download-link { display: inline-block; padding: 8px 11px; background: var(--forest); color: #fff; font-size: 10px; font-weight: 700; }
+.dashboard-toast { position: fixed; right: 20px; bottom: 20px; z-index: 10; max-width: min(360px, calc(100vw - 40px)); padding: 12px 15px; background: var(--forest); color: #fff; font-size: 11px; box-shadow: 0 7px 24px rgba(22, 50, 43, .2); }
+.dashboard-toast.error { background: #8d3c30; }
+
+@media (max-width: 760px) {
+    .dashboard-shell { width: calc(100% - 32px); padding-top: 26px; }
+    .dashboard-nav { gap: 10px; }
+    .dashboard-nav > a { display: none; }
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .metric-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+    .coordinator-layout { grid-template-columns: 1fr; gap: 10px; }
+    .coordinator-rail { position: static; display: flex; overflow-x: auto; border-bottom: 1px solid var(--line); }
+    .coordinator-rail a { flex: 0 0 auto; }
+    .inline-form { grid-template-columns: 1fr 1fr; }
+    .inline-form > button { grid-column: 1 / -1; }
+}
+
+@media (max-width: 420px) {
+    .dashboard-grid { gap: 10px; }
+    .framed-section { padding: 14px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-grid .wide-field { grid-column: auto; }
+    .recommendation-columns { grid-template-columns: 1fr; gap: 12px; }
+    .dashboard-heading h1 { font-size: 29px; }
+    .section-heading h2 { font-size: 20px; }
+}

@@ -1,0 +1,4 @@
+S1001|Aarav Sharma|aarav@campus.local|CSE
+S1002|Priya Singh|priya@campus.local|CSE
+S1003|Rohan Verma|rohan@campus.local|ECE
+24021550|Priyanshi Rathore|priyanshi@gehu.ac.in|CSE

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f1f5f2">
+    <meta name="description" content="Create a Campus Connect student or coordinator account.">
+    <title>Create account | Campus Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="signup.css">
+    <script src="signup.js" defer></script>
+</head>
+<body class="login-page signup-page">
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="Campus Connect home">
+            <span class="brand-mark" aria-hidden="true">cc</span>
+            <span>campus<span class="brand-light">connect</span></span>
+        </a>
+        <a class="sign-in-link" href="login.html">Already registered? Sign in <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="login-shell signup-shell">
+        <section class="login-visual" aria-label="Campus Connect">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=85" alt="Students spending time together on campus" onerror="this.hidden=true">
+            <div class="login-visual-shade"></div>
+            <div class="login-visual-copy">
+                <p class="eyebrow">CAMPUS CONNECT · ACCOUNT ACCESS</p>
+                <h1>Make room for<br>something <em>new.</em></h1>
+                <p>Start with your campus identity. Find your community from there.</p>
+            </div>
+            <span class="login-visual-index">02 / CAMPUS LIFE</span>
+        </section>
+
+        <section class="login-panel signup-panel" aria-labelledby="signup-title">
+            <div class="login-panel-inner">
+                <p class="eyebrow">JOIN YOUR CAMPUS</p>
+                <h2 id="signup-title">Create account</h2>
+                <p class="login-intro">Choose the account that fits your campus role.</p>
+
+                <div class="role-switch" role="tablist" aria-label="Account type">
+                    <button class="role-tab active" type="button" role="tab" aria-selected="true" data-role="student">Student</button>
+                    <button class="role-tab" type="button" role="tab" aria-selected="false" data-role="coordinator">Club coordinator</button>
+                </div>
+
+                <form class="login-form signup-form" id="signup-form">
+                    <div id="student-fields">
+                        <label for="student-id">Student ID</label>
+                        <input id="student-id" name="studentId" type="text" autocomplete="off" placeholder="S1001" required>
+                    </div>
+                    <div id="coordinator-fields" hidden>
+                        <label for="display-name">Your name</label>
+                        <input id="display-name" name="displayName" type="text" autocomplete="name" placeholder="Club Coordinator">
+                        <label for="invite-code">Coordinator invitation code</label>
+                        <input id="invite-code" name="inviteCode" type="password" autocomplete="off">
+                    </div>
+
+                    <label for="email">Campus email</label>
+                    <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@campus.edu" required>
+
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" autocomplete="new-password" minlength="12" required>
+
+                    <label for="confirm-password">Confirm password</label>
+                    <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="12" required>
+
+                    <p class="login-error" id="signup-error" role="alert" hidden></p>
+                    <button class="login-submit" id="signup-submit" type="submit">Create account <span aria-hidden="true">↗</span></button>
+                </form>
+
+                <p class="account-note" id="signup-note">Your ID and email must match an existing student profile.</p>
+                <a class="back-link" href="login.html">Already have an account? Sign in</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

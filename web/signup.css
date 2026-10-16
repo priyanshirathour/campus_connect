@@ -1,0 +1,15 @@
+.signup-shell { min-height: 730px; }
+.signup-panel { padding-top: 30px; padding-bottom: 30px; }
+.signup-panel .login-intro { margin-bottom: 17px; }
+.signup-form { gap: 6px; }
+.signup-form > div[hidden] { display: none; }
+.signup-form > div:not([hidden]) { display: grid; gap: 6px; }
+.signup-form > div:not([hidden]) label:not(:first-child) { margin-top: 4px; }
+.signup-form input { height: 39px; }
+.signup-form .login-submit { min-height: 42px; margin-top: 8px; }
+.signup-panel .account-note { margin: 13px 0 8px; }
+
+@media (max-width: 760px) {
+    .signup-shell { min-height: auto; }
+    .signup-panel { padding-top: 27px; padding-bottom: 27px; }
+}

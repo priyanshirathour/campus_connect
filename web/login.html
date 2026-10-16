@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f1f5f2">
+    <meta name="description" content="Sign in to Campus Connect as a student or club coordinator.">
+    <title>Sign in | Campus Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer></script>
+</head>
+<body class="login-page">
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="Campus Connect home">
+            <span class="brand-mark" aria-hidden="true">cc</span>
+            <span>campus<span class="brand-light">connect</span></span>
+        </a>
+        <a class="sign-in-link" href="/">Explore campus <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="login-shell">
+        <section class="login-visual" aria-label="Campus Connect">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=85" alt="Students spending time together on campus" onerror="this.hidden=true">
+            <div class="login-visual-shade"></div>
+            <div class="login-visual-copy">
+                <p class="eyebrow">CAMPUS CONNECT · ACCOUNT ACCESS</p>
+                <h1>Your campus.<br>Your <em>people.</em></h1>
+                <p>One place to stay close to what’s happening.</p>
+            </div>
+            <span class="login-visual-index">01 / CAMPUS LIFE</span>
+        </section>
+
+        <section class="login-panel" aria-labelledby="login-title">
+            <div class="login-panel-inner">
+                <p class="eyebrow">WELCOME BACK</p>
+                <h2 id="login-title">Sign in</h2>
+                <p class="login-intro" id="login-intro">Pick up where campus life left off.</p>
+
+                <div class="role-switch" role="tablist" aria-label="Account type">
+                    <button class="role-tab active" id="student-tab" type="button" role="tab" aria-selected="true" data-role="student">Student</button>
+                    <button class="role-tab" id="coordinator-tab" type="button" role="tab" aria-selected="false" data-role="coordinator">Club coordinator</button>
+                </div>
+
+                <form class="login-form" id="login-form">
+                    <label for="email">Campus email</label>
+                    <input id="email" name="email" type="email" inputmode="email" autocomplete="username" placeholder="name@campus.edu" required>
+
+                    <div class="password-label-row">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="password-field">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required>
+                        <button class="password-toggle" id="password-toggle" type="button" aria-pressed="false">Show</button>
+                    </div>
+
+                    <p class="login-error" id="login-error" role="alert" hidden></p>
+                    <button class="login-submit" id="login-submit" type="submit">Sign in <span aria-hidden="true">↗</span></button>
+                </form>
+
+                <p class="account-note">New to Campus Connect? <a class="create-account-link" href="signup.html">Create an account</a></p>
+                <a class="back-link" href="/">← Back to event discovery</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

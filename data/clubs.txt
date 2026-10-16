@@ -1,0 +1,3 @@
+C101|Coding Club|Programming and software projects
+C102|Robotics Club|Robotics and embedded systems
+C103|Design Club|UI/UX and creative design

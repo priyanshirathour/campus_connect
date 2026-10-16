@@ -1,0 +1,4 @@
+E101|C101|DSA Workshop|2026-11-05|10:00|2|Lab 3|Technical|Hands-on data structures workshop
+E102|C101|Campus Hackathon|2026-11-12|09:00|50|Innovation Hall|Technical|A campus coding challenge
+E103|C102|Robotics Showcase|2026-11-15|14:00|30|Auditorium|Robotics|Student robotics projects
+E104|C103|Design Jam|2026-11-20|11:00|25|Studio 2|Design|Collaborative UX challenge
